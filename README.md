@@ -1,69 +1,119 @@
 # Juno
-Automatically deploying my personal nvim configuration
 
----
-
-## Quick deploy
-
-```bash
-# One-liner: clone + launch
-bash <(curl -s https://raw.githubusercontent.com/thijsrijkers/juno/main/deploy.sh)
-```
-
-Or clone manually:
-
-```bash
-git clone https://github.com/thijsrijkers/juno ~/.config/nvim
-cd ~/.config/nvim
-nvim .          # plugins install automatically on first open
-```
-
----
-
-## What's included
-
-| Plugin | Purpose |
-|---|---|
-| `tokyonight.nvim` | Tokyo Night colour scheme (moon variant) |
-| `telescope.nvim` | Fuzzy file finder + live grep |
-| `telescope-fzf-native` | Native FZF sorter (faster search) |
-| `nvim-tree.lua` | File explorer sidebar |
-| `lualine.nvim` | Status line |
-| `bufferline.nvim` | Buffer / tab bar |
-| `nvim-treesitter` | Syntax highlighting |
-| `which-key.nvim` | Keybinding popup guide |
-| `nvim-autopairs` | Auto-close brackets/quotes |
-| `Comment.nvim` | Toggle comments (`gcc` / `gc`) |
-| `gitsigns.nvim` | Git diff in gutter |
-| `dashboard-nvim` | Start screen |
-
----
-
-## Key bindings (Space is `<leader>`)
-
-### Files & Search
-| Key | Action |
-|---|---|
-| `<leader>ff` | Find files |
-| `<leader>fg` | Live grep (search text in project) |
-| `<leader>fr` | Recent files |
-| `<leader>fs` | Grep word under cursor |
-| `<leader>fb` | Browse open buffers |
-| `<leader>e` | Toggle file tree |
-
-### Editing
-| Key | Action |
-|---|---|
-| `gcc` | Toggle line comment |
-| `gc` (visual) | Toggle selection comment |
-| `<C-h/j/k/l>` | Navigate between splits |
-| `<S-h>` / `<S-l>` | Previous / next buffer |
+My personal Neovim configuration with theme, fuzzy file search, and live grep — managed by [lazy.nvim](https://github.com/folke/lazy.nvim).
 
 ---
 
 ## Requirements
 
-- **Neovim** ≥ 0.9
-- **git**
-- **ripgrep** (`rg`) – for Telescope live grep
-- A [Nerd Font](https://www.nerdfonts.com/) in your terminal for icons
+Before installing, make sure you have the following installed:
+
+- **Neovim** >= 0.9
+- **Git**
+- **Ripgrep** — used for live grep search inside files
+
+### Install Ripgrep
+
+| OS | Command |
+|---|---|
+| Windows | `winget install BurntSushi.ripgrep.MSVC` |
+| macOS | `brew install ripgrep` |
+| Linux | `sudo apt install ripgrep` |
+
+---
+
+## Installation
+
+### Windows (PowerShell)
+
+```powershell
+git clone https://github.com/thijsrijkers/juno $env:LOCALAPPDATA\nvim
+nvim
+```
+
+### macOS & Linux
+
+```bash
+git clone https://github.com/thijsrijkers/juno ~/.config/nvim
+nvim
+```
+
+On first launch, lazy.nvim will automatically install all plugins. Wait for it to finish, then restart Neovim.
+
+---
+
+## Uninstall / Reset
+
+If you want a clean reinstall, remove the config and plugin data first.
+
+### Windows (PowerShell)
+```powershell
+Remove-Item -Recurse -Force $env:LOCALAPPDATA\nvim
+Remove-Item -Recurse -Force $env:LOCALAPPDATA\nvim-data
+```
+
+### macOS & Linux
+```bash
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.cache/nvim
+```
+
+Then run the installation steps again.
+
+---
+
+## Keybindings
+
+Space is the leader key.
+
+### Search
+| Key | Action |
+|---|---|
+| `Space sf` | Search files |
+| `Space sg` | Search text across project (grep) |
+| `Space sw` | Search word under cursor |
+| `Space sr` | Resume last search |
+| `Space sd` | Search diagnostics |
+| `Space sk` | Search keymaps |
+| `Space /` | Search text in current file |
+| `Space Space` | Browse open buffers |
+
+### Files
+| Key | Action |
+|---|---|
+| `Space e` | Toggle file explorer |
+| `:E` | Open file explorer at current file location |
+
+### Navigation
+| Key | Action |
+|---|---|
+| `Shift h` | Previous tab |
+| `Shift l` | Next tab |
+| `Ctrl h/j/k/l` | Move between splits |
+
+### Editing
+| Key | Action |
+|---|---|
+| `gcc` | Toggle line comment |
+| `gc` (visual) | Toggle comment on selection |
+| `Space w` | Save file |
+| `Space q` | Quit |
+
+---
+
+## Plugins
+
+| Plugin | Purpose |
+|---|---|
+| `sainnhe/everforest` | Everforest colour scheme |
+| `telescope.nvim` | Fuzzy file finder and live grep |
+| `nvim-tree.lua` | File explorer sidebar |
+| `lualine.nvim` | Status line |
+| `bufferline.nvim` | Tab bar |
+| `nvim-treesitter` | Syntax highlighting |
+| `which-key.nvim` | Keybinding popup guide |
+| `nvim-autopairs` | Auto-close brackets and quotes |
+| `Comment.nvim` | Toggle comments |
+| `gitsigns.nvim` | Git changes in the gutter |
