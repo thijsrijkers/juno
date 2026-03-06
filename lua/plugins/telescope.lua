@@ -1,7 +1,7 @@
 -- plugins/telescope.lua
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.8",
+  commit = "a0bbec21143c7bc5f8bb02e0005fa0b982edc026"  -- last stable before ft_to_lang removal,
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -14,9 +14,18 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    -- Compatibility fix: ft_to_lang was removed in newer Neovim
-    if vim.treesitter.language and not vim.treesitter.language.ft_to_lang then
-      vim.treesitter.language.ft_to_lang = function(ft) return ft end
+    -- Compatibility shim for newer Neovim builds
+    local ok_parsers, ts_parsers = pcall(require, "nvim-treesitter.parsers")
+    if ok_parsers then
+      if not ts_parsers.ft_to_lang then
+        ts_parsers.ft_to_lang = function(ft) return ft end
+      end
+    end
+    local ok_configs, ts_configs = pcall(require, "nvim-treesitter.configs")
+    if ok_configs then
+      if not ts_configs.is_enabled then
+        ts_configs.is_enabled = function() return false end
+      end
     end
 
     local telescope = require("telescope")
