@@ -16,16 +16,7 @@ error()   { echo -e "${RED}[ERR]${RESET}   $*" >&2; exit 1; }
 
 # ── Config ────────────────────────────────────────────────────────────
 NVIM_CONFIG_DIR="${HOME}/.config/nvim"
-REPO_URL="${1:-}"          # first argument, or empty
-
-# ── 1. Resolve repo URL ───────────────────────────────────────────────
-if [[ -z "${REPO_URL}" ]]; then
-  echo -e "${BOLD}Enter your GitHub repo URL${RESET}"
-  echo    "  e.g. https://github.com/youruser/nvim-config"
-  read -rp "→ URL: " REPO_URL
-fi
-
-[[ -z "${REPO_URL}" ]] && error "No repo URL provided."
+REPO_URL="${1:-https://github.com/thijsrijkers/juno}"
 
 # ── 2. Check dependencies ─────────────────────────────────────────────
 info "Checking dependencies…"
