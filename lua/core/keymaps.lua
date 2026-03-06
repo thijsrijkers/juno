@@ -45,8 +45,8 @@ map("n", "<leader><leader>", "<cmd>Telescope buffers<CR>", { desc = "[ ] Find ex
 -- ── File tree ─────────────────────────────────────────────────────────
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
 
--- :E opens the file explorer focused on the current file's directory
-vim.api.nvim_create_user_command("E", function()
+-- :e opens the file explorer focused on the current file's directory
+vim.api.nvim_create_user_command("e", function()
   require("nvim-tree.api").tree.find_file({ open = true, focus = true })
 end, { desc = "Open file explorer at current file" })
 
