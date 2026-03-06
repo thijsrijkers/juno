@@ -1,21 +1,14 @@
--- plugins/colorscheme.lua
 return {
-  "EdenEast/nightfox.nvim",
+  "Mofiqul/vscode.nvim",
   lazy     = false,
   priority = 1000,
   config = function()
-    require("nightfox").setup({
-      options = {
-        transparent     = false,
-        terminal_colors = true,
-        styles = {
-          comments  = "italic",
-          keywords  = "italic",
-          functions = "NONE",
-          variables = "NONE",
-        },
-      },
+    require("vscode").setup({
+      style             = "dark",  -- "dark" | "light"
+      transparent       = false,
+      italic_comments   = true,
+      disable_nvimtree_bg = true,
     })
-    vim.cmd("colorscheme nordfox")
+    require("vscode").load()
   end,
 }
