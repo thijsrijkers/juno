@@ -18,7 +18,7 @@ Space is the leader key.
 | Key | Action |
 |---|---|
 | `Space e` | Toggle file explorer |
-| `:e` | Open file explorer at current file location |
+| `:E` | Open file explorer at current file location |
 
 ### Navigation
 | Key | Action |
