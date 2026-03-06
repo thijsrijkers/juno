@@ -1,22 +1,19 @@
 -- plugins/colorscheme.lua
 return {
-  "EdenEast/nightfox.nvim",
+  "ellisonleao/gruvbox.nvim",
   lazy     = false,
   priority = 1000,
   config = function()
-    require("nightfox").setup({
-      options = {
-        transparent       = false,
-        terminal_colors   = true,
-        dim_inactive      = false,
-        styles = {
-          comments  = "italic",
-          keywords  = "italic",
-          functions = "NONE",
-          variables = "NONE",
-        },
+    require("gruvbox").setup({
+      contrast      = "hard",  -- "hard" | "medium" | "soft"
+      transparent_mode = false,
+      italic = {
+        strings   = false,
+        comments  = true,
+        operators = false,
+        folds     = true,
       },
     })
-    vim.cmd("colorscheme nightfox")
+    vim.cmd("colorscheme gruvbox")
   end,
 }
