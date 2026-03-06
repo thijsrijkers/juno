@@ -62,7 +62,14 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    opts  = {},
+    config = function()
+      local wk = require("which-key")
+      wk.setup{}
+      wk.add({
+        { "<leader>s", group = "[S]earch" },
+        { "<leader>b", group = "[B]uffer" },
+      })
+    end,
   },
 
   -- ── Autopairs ─────────────────────────────────────────────────────
