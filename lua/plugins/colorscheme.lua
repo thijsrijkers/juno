@@ -1,14 +1,21 @@
 -- plugins/colorscheme.lua
 return {
-  "shaunsingh/nord.nvim",
+  "EdenEast/nightfox.nvim",
   lazy     = false,
   priority = 1000,
   config = function()
-    vim.g.nord_contrast             = true
-    vim.g.nord_borders              = false
-    vim.g.nord_disable_background   = false
-    vim.g.nord_italic               = true
-    vim.g.nord_bold                 = true
-    vim.cmd("colorscheme nord")
+    require("nightfox").setup({
+      options = {
+        transparent     = false,
+        terminal_colors = true,
+        styles = {
+          comments  = "italic",
+          keywords  = "italic",
+          functions = "NONE",
+          variables = "NONE",
+        },
+      },
+    })
+    vim.cmd("colorscheme nordfox")
   end,
 }
