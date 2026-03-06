@@ -1,7 +1,7 @@
 -- plugins/telescope.lua
 return {
   "nvim-telescope/telescope.nvim",
-  commit = "a0bbec21143c7bc5f8bb02e0005fa0b982edc026"  -- last stable before ft_to_lang removal,
+  tag = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -75,7 +75,7 @@ return {
           end,
         },
         current_buffer_fuzzy_find = {
-          previewer = false,  -- avoids ft_to_lang on buffer search
+          previewer = false,
         },
         buffers = {
           sort_lastused         = true,
