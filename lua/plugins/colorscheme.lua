@@ -1,21 +1,20 @@
 return {
-  "rose-pine/neovim",
-  name     = "rose-pine",
+  "rebelot/kanagawa.nvim",
   lazy     = false,
   priority = 1000,
   config = function()
-    require("rose-pine").setup({
-      variant          = "main",   -- "main" | "moon" | "dawn"
-      dark_variant     = "main",
-      dim_inactive_windows = false,
-      extend_background_behind_borders = true,
+    require("kanagawa").setup({
+      variant    = "wave",   -- "wave" | "dragon" | "lotus"
+      background = {
+        dark  = "wave",
+        light = "lotus",
+      },
 
       styles = {
-        bold      = true,
-        italic    = true,
-        transparency = false,
+        bold   = true,
+        italic = true,
       },
     })
-    vim.cmd("colorscheme rose-pine")
+    vim.cmd("colorscheme kanagawa")
   end,
 }
