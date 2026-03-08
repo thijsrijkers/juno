@@ -20,6 +20,16 @@ Space is the leader key.
 | `Space e` | Toggle file explorer |
 | `:E` | Open file explorer at current file location |
 
+### File Explorer (nvim-tree)
+| Key | Action |
+|---|---|
+| `a` | Create file or folder (add trailing `/` for folder) |
+| `r` | Rename file or folder |
+| `d` | Delete file or folder |
+| `x` | Cut |
+| `c` | Copy |
+| `p` | Paste |
+
 ### Navigation
 | Key | Action |
 |---|---|
