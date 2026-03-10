@@ -50,14 +50,15 @@ Space is the leader key.
 ### LSP
 | Key | Action |
 |---|---|
-| `gd` | Go to definition |
+| `gd` | Go to implementation |
 | `gD` | Go to declaration |
-| `gr` | Go to references |
-| `gi` | Go to implementation |
+| `gT` | Go to type definition |
 | `K` | Hover documentation |
+| `Space ld` | Go to definition |
+| `Space li` | Go to implementation |
+| `Space lr` | Go to references |
 | `Space rn` | Rename symbol |
 | `Space ca` | Code action |
 | `Space lf` | Format file |
 
 ---
-
