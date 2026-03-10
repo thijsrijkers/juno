@@ -46,3 +46,18 @@ Space is the leader key.
 | `Space q` | Quit |
 
 ---
+
+### LSP
+| Key | Action |
+|---|---|
+| `gd` | Go to definition |
+| `gD` | Go to declaration |
+| `gr` | Go to references |
+| `gi` | Go to implementation |
+| `K` | Hover documentation |
+| `Space rn` | Rename symbol |
+| `Space ca` | Code action |
+| `Space lf` | Format file |
+
+---
+
