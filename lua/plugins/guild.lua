@@ -38,9 +38,10 @@ local function toggle_guild()
     title_pos = "center",
   })
 
-  -- start guild process only once per session
-  if not state.job then
-    state.job = vim.fn.termopen("guild", {
+-- start guild process only once per session
+if not state.job then
+  local cmd = vim.fn.executable("guild-go") == 1 and "guild-go" or "guild"
+  state.job = vim.fn.termopen(cmd, {
       on_exit = function()
         state.job = nil
         state.buf = nil
