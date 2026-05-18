@@ -21,6 +21,7 @@ return {
         ensure_installed = {
           "gopls",
           "ts_ls",
+          "rust_analyzer",
         },
         automatic_installation = true,
       })
@@ -36,12 +37,9 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- Auto-import helper: runs import-related code actions on save
       local function auto_import(bufnr)
         local ft = vim.bo[bufnr].filetype
-
         local filter = nil
-
         if ft == "typescript" or ft == "typescriptreact" or ft == "javascript" or ft == "javascriptreact" then
           filter = function(action)
             return action.kind == "source.addMissingImports.ts"
@@ -51,7 +49,6 @@ return {
             return action.title:match("[Oo]rganize [Ii]mports")
           end
         end
-
         if filter then
           vim.lsp.buf.code_action({
             apply  = true,
@@ -78,7 +75,6 @@ return {
           vim.lsp.buf.format({ async = true })
         end, "Format file")
 
-        -- Auto-import on save
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer   = bufnr,
           callback = function() auto_import(bufnr) end,
@@ -87,8 +83,21 @@ return {
 
       vim.lsp.config("gopls", { on_attach = on_attach, capabilities = capabilities })
       vim.lsp.enable("gopls")
+
       vim.lsp.config("ts_ls", { on_attach = on_attach, capabilities = capabilities })
       vim.lsp.enable("ts_ls")
+
+      vim.lsp.config("rust_analyzer", {
+        on_attach    = on_attach,
+        capabilities = capabilities,
+        settings = {
+          ["rust-analyzer"] = {
+            cargo    = { allFeatures = true },
+            checkOnSave = { command = "clippy" },
+          },
+        },
+      })
+      vim.lsp.enable("rust_analyzer")
     end,
   },
 }
