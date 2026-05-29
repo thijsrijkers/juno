@@ -1,3 +1,6 @@
+vim.opt.termguicolors = true
+vim.opt.background = "dark"
+
 return {
   "ellisonleao/gruvbox.nvim",
   lazy     = false,
