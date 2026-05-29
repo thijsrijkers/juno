@@ -1,20 +1,18 @@
 return {
-  "rebelot/kanagawa.nvim",
+  "ellisonleao/gruvbox.nvim",
   lazy     = false,
   priority = 1000,
   config = function()
-    require("kanagawa").setup({
-      variant    = "wave",   -- "wave" | "dragon" | "lotus"
-      background = {
-        dark  = "wave",
-        light = "lotus",
-      },
-
-      styles = {
-        bold   = true,
-        italic = true,
+    require("gruvbox").setup({
+      contrast = "hard",
+      bold = true,
+      italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
       },
     })
-    vim.cmd("colorscheme kanagawa")
+    vim.cmd("colorscheme gruvbox")
   end,
 }
