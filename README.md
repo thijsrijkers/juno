@@ -1,5 +1,8 @@
 # Juno
 
+Migrated from Codeberg:
+https://codeberg.org/thijsrijkers/juno
+
 An opinionated terminal text editor.
 
 Juno takes the modal editing philosophy developers already know and love, and builds the tools they actually reach for every day directly into the editor itself. No plugin manager. No config marathon. Compile it, install it, open it, start working.
