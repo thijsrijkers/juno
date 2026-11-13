@@ -52,7 +52,7 @@ Install Juno, and you have a real editor, not a blank slate waiting for a `plugi
 Juno is written in Zig and requires Zig 0.16.0 or later.
 
 ```bash
-git clone https://codeberg.org/thijsrijkers/juno.git
+git clone https://github.com/thijsrijkers/juno.git
 cd juno
 ./install.sh
 ```
